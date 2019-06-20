@@ -1,0 +1,559 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  第3章 统计语言模型 - 
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site: ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; </span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E.html">数学之美</a></li>
+        
+            <li><a href="tensorflow.html">tensorflow</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>第3章 统计语言模型</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2019/5/31</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E.html'>数学之美</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <ul>
+<li>作者：luomgf</li>
+<li>163mail:luomgf</li>
+<li>说明：转载请注明出处，系本人原创阅读分享，欢迎有兴趣的机器学习、人工智能和自然语言处理技术学习的朋友一起交流</li>
+<li>地址：<a href="https://www.cnblogs.com/luomgf/p/10971773.html">https://www.cnblogs.com/luomgf/p/10971773.html</a></li>
+</ul>
+
+<ul>
+<li>
+<a href="#toc_0">第3章 统计语言模型</a>
+<ul>
+<li>
+<a href="#toc_1">1、用数学的方法描述语言规律</a>
+<ul>
+<li>
+<a href="#toc_2">本节提到的概念</a>
+</li>
+<li>
+<a href="#toc_3">本节人物</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_4">2、延伸阅读：统计语言模型的工程诀窍</a>
+<ul>
+<li>
+<a href="#toc_5">2.1、高阶语言模型</a>
+<ul>
+<li>
+<a href="#toc_6">N合适的取值是2-3</a>
+</li>
+<li>
+<a href="#toc_7">马尔可夫假设局限性和文本长程依赖性</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_8">2.2 模型的训练、零概率问题和平滑方法</a>
+<ul>
+<li>
+<a href="#toc_9">2.2.1 模型的训练</a>
+</li>
+<li>
+<a href="#toc_10">2.2.2 零概率问题</a>
+<ul>
+<li>
+<a href="#toc_11">2.2.2.1 问题出现的原因</a>
+</li>
+<li>
+<a href="#toc_16">本节数学符号</a>
+</li>
+<li>
+<a href="#toc_17">参考链接</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h1 id="toc_0">第3章 统计语言模型</h1>
+
+<h2 id="toc_1">1、用数学的方法描述语言规律</h2>
+
+<p>\[\begin{equation}<br/>
+P(S)=P(w_1,w_2,w3,\cdots,w_n)<br/>
+\end{equation}\]<br/>
+根据条件概率公式：<br/>
+\[\begin{equation}<br/>
+ =P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_1,w_2),\cdots,P(w_i|w_1,w_2,w_3,\cdots,w_{i-1}),P(w_n|w_1,w_2,w_3,\cdots,w_{n-1})) <br/>
+ \end{equation}\]</p>
+
+<p>根据马尔可夫假设：<br/>
+当N=2，二元模型<br/>
+   \[ \approx P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_2)P(w_i|w_{i-1})P(w_n|w_{n-1})  \]<br/>
+   当N=3，三元模型<br/>
+ \[<br/>
+\begin{equation}<br/>
+=P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_1,w_2)P(w_4|w_1,w_2，w_3)P(w_5|w_2,w_3，w_4),\cdots,P(w_i|w_{i-3},w_{i-2},w_{i-1}),P(w_n|w_{n-3},w_{n-2},w_{n-1})) <br/>
+\end{equation}<br/>
+\]</p>
+
+<p>N元模型<br/>
+\[ =P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_1,w_2),\cdots,P(w_i|w_{i-1-N},\cdots,w_{i-1}),P(w_n|,w_{n-1-N},\cdots,w_{n-1})) \]</p>
+
+<p>马尔可夫假设推导形成的常见语言模型<br/>
+| N=1 | Unigram | 一元语言模型 |<br/>
+| --- | --- | --- |<br/>
+| N=2 | Bigram | 二元语言模型 |<br/>
+| N=3 | Trigram  | 三元语言模型 |<br/>
+| N=？ | N-gram |  N元gram模型 |</p>
+
+<p>对于任意给定单词\(w_i\),\(P(w_i)\)当取二元模型时：<br/>
+\[<br/>
+\begin{equation}<br/>
+P(w_i) = \frac{<br/>
+    P(w_{i-1},w_i)<br/>
+}{<br/>
+     P(w_{i-1})<br/>
+}<br/>
+\label{eq:qmath}<br/>
+\end{equation}<br/>
+\]<br/>
+\( P(w_{i-1},w_i)\)是联合概率，\(P(w_{i-1})\)是边缘概率。我们要计算这两个的概率，需要用到大数定理。当有大量重复事件时，事件发生的频率接近于概率。<br/>
+\[<br/>
+\begin{equation}<br/>
+f(w_{i-1},w_i)=\frac{\#(W_{i-1},w_i)}{\#}<br/>
+\end{equation}<br/>
+\]<br/>
+\[<br/>
+\begin{equation}<br/>
+f(w_{i-1})=\frac{\#(W_{i-1})}{\#}<br/>
+\end{equation}<br/>
+\]<br/>
+当统计量足够，相对频度和概率就几乎相等。（同时这个地方的假设我个人认为也是对我们的语料库提出了要求。）<br/>
+\[<br/>
+\begin{equation}<br/>
+f(w_{i-1},w_i)=\frac{\#(W_{i-1},w_i)}{\#}\approx P(w_{i-1},w_i)<br/>
+\end{equation}<br/>
+\]<br/>
+\[<br/>
+\begin{equation}<br/>
+f(w_{i-1})=\frac{\#(W_{i-1})}{\#}\approx P(w_{i-1})<br/>
+\end{equation}<br/>
+\]<br/>
+\[<br/>
+\begin{equation}<br/>
+P(w_i|w_{i-1})=\frac{P(w_{i-1},w_i)}{P(w_{i-1})}\approx \frac{f(w_{i-1},w_i)}{f(w_{i-1})}<br/>
+=\frac{\frac{\#(w_{i-1},w_i)}{\#}}{\frac{\#(w_{i-1})}{\#}}<br/>
+=\frac{\#(w_{i-1},w_i)}{\#(w_{i-1})}<br/>
+\end{equation}<br/>
+ \]</p>
+
+<h3 id="toc_2">本节提到的概念</h3>
+
+<p>联合概率<br/>
+边缘概率<br/>
+条件概率<br/>
+马尔可夫假设<br/>
+大数据定理<br/>
+语料库<br/>
+相对频度</p>
+
+<h3 id="toc_3">本节人物</h3>
+
+<p>费里尼克<br/>
+马尔可夫<br/>
+李开复<br/>
+罗赛塔</p>
+
+<h2 id="toc_4">2、延伸阅读：统计语言模型的工程诀窍</h2>
+
+<h3 id="toc_5">2.1、高阶语言模型</h3>
+
+<h4 id="toc_6">N合适的取值是2-3</h4>
+
+<ul>
+<li>空间复杂度</li>
+<li>计算速度</li>
+</ul>
+
+<h4 id="toc_7">马尔可夫假设局限性和文本长程依赖性</h4>
+
+<h3 id="toc_8">2.2 模型的训练、零概率问题和平滑方法</h3>
+
+<h4 id="toc_9">2.2.1 模型的训练</h4>
+
+<p>使用语言模型的条件是得知道所有词的出现条件概率值，然后将他们按照预测的句子概率相乘得到句子概率。所以我们需要先计算每一个的条件概率，这些概率值我们称为模型的参数。通过对语料的统计，得到这些参数的过程称作模型的训练。</p>
+
+<h4 id="toc_10">2.2.2 零概率问题</h4>
+
+<h5 id="toc_11">2.2.2.1 问题出现的原因</h5>
+
+<p>假如我们使用二元统计语言模型，根据前面的推理公式有：<br/>
+   \[ P(S)\approx P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_2)P(w_i|w_{i-1})P(w_n|w_{n-1})  \]<br/>
+   \[<br/>
+\begin{equation}<br/>
+P(w_i|w_{i-1})=\frac{P(w_{i-1},w_i)}{P(w_{i-1})}\approx \frac{f(w_{i-1},w_i)}{f(w_{i-1})}<br/>
+=\frac{\frac{\#(w_{i-1},w_i)}{\#}}{\frac{\#(w_{i-1})}{\#}}<br/>
+=\frac{\#(w_{i-1},w_i)}{\#(w_{i-1})}<br/>
+\end{equation}<br/>
+\]<br/>
+我们考虑以下两种情况</p>
+
+<ul>
+<li>当\(\#(w_{i-1},w_i)=0\),即该联合词在语料库中一次都没有出现。则，\(P(w_i|w_{i-1})=0\).</li>
+<li><p>当\(\#(w_{i-1},w_i)=1,\#(w_{i-1})=1 \),即该联合词和前面的词在语料库中只出现一次。则，\(P(w_i|w_{i-1})=1=100\%\).<br/>
+以上两种情况，从数学的推导上面看似是没有问题，但是我们结合现实情况考虑以下，这样的结论是否是完备和太过于绝对。即当该词在语料库中一次都没有我们就说这个不合理，当两个都出现1次就一定会出现，显然语料库是有可能不完整和充分的。因此这样的结论和概率是不合适的，需要我们解决该问题。</p></li>
+<li><p><strong>运用更为通俗的学生例子加以解释</strong></p>
+<h5 id="toc_12">2.2.2.2.2 0概率问题解决办法</h5>
+<p>最直接的办法：增加数据量，因为我们都知道根据大数定理，当量一定程度后其频率都比较接近概率，因此我们对这些出现一次的再增加就可以使其逼近真实概率。<br/>
+但是现实生活中大的数据量只是一个相对的概念，因此最后都会面临一个0概率或者100%的问题。</p></li>
+<li><p>古德图灵估计原理：<br/>
+对于没有看见的事件，我们不能认为他发生的概率是0，因此我们从概率总理中，分配一个很小的比例给这些没有看见的事件。这样以来看见的那些时间的概率总和就要小于1了，因此，需要将所有看见的事件概率<strong>调小</strong>一点。至于小多少。要根据“越是不可信的统计折扣越多的”的方法进行。</p></li>
+<li><p>古德-图灵估计语料估计过程<br/>
+假定在语料库中出现r次的词有\(N_r\)个，特别地，未出现的词数量\(N_0\)个，语料库的大小为N。则有：<br/>
+\[\begin{equation}<br/>
+N=\sum_{r=1}^\infty rN_r <br/>
+\end{equation} \]<br/>
+这个的意思就是，比如出现100次的有“我”“你”“他”三个词，则N=3*100=300<br/>
+对于出现r次的词在整个语料库中的相对频度则是：<br/>
+\[\begin{equation}<br/>
+出现r次的词在整个语料库中的相对频度=rN_r/N<br/>
+\end{equation}\]<br/>
+ 现在我们看是如何运用的<br/>
+ 如果r次数比较小--》统计不可考---〉需要调整---》这个地方我们调整次数即可---〉用\(d_r\)代替r---&gt;其满足如下古德图灵公式：<br/>
+ \[<br/>
+ d_r=(r+1)N_{r+1}/N_r=(r+1)\frac{N_{r+1}}{N_r}<br/>
+ \]<br/>
+ 同时以下等式也是成立的：<br/>
+\(\sum_rd_r\cdot N_r=N\)</p></li>
+<li><p>zipf定律<br/>
+背景知识：根据观察一般语料库中，出现一次的词的数量比出现两次的多，出现两次的比出现三次的多。即出现次数越多的词，数量越少，出现次数越少的词数量越多。这个很好理解，常用词出现的次数很多，但是数量很少，其他不常用词出现次数少，但是量大，因为中文或者词语有几千个字，常用的不多，所以出现次数越多的单身数量却不多，不常用字生僻字还是占据了很大一部分，所以数量多，但是用的次数少。<br/>
+理解记忆小技巧：这就好像，r类似考试的100道题，能够做100分的活着高分的能人数很少，但是做个普通分数或者低分的人数量很多，有些类似或者可以这么记。<br/>
+即,只有极少数的词被经常使用,而绝大多数词很少被使用.</p></li>
+<li><p>古德图灵估计-2元模型<br/>
+\[<br/>
+P(w_i|w_{i-1})= \left\{<br/>
+\begin{aligned}<br/>
+f(w_i|w_{i-1})  &amp;&amp;&amp; if \#(w_{i-1},w_i) &gt;=T  \\<br/>
+f_{gt}(w_i|w_{i-1}) &amp;&amp;&amp; if 0&lt;\#(w_{i-1},w_i)&lt; T \\<br/>
+Q(w_{i-1}) \cdot  f(w_i)  &amp;&amp;&amp; otherwise \\<br/>
+\end{aligned}<br/>
+\right.\]<br/>
+\[<br/>
+Q(w_{i-1})=\frac{1-\sum_\limits{w_i seen}P(w_i|w_{i-1})}{<br/>
+\sum_\limits{w_i seen}f(w_i)<br/>
+}<br/>
+\]</p></li>
+<li><p>古德图灵估计-3元模型<br/>
+\[<br/>
+P(w_i|w_{i-2},w_{i-1})= \left\{<br/>
+\begin{aligned}<br/>
+f(w_i|w_{i-2,w_{i-1}})  &amp;&amp;&amp; if \#(w_{i-2},w_{i-1},w_i) &gt;=T  \\<br/>
+f_{gt}(w_i|w_{i-2},w{i-1}) &amp;&amp;&amp; if 0&lt;\#(w_{i-2},w_{i-1},w_i)&lt; T \\<br/>
+Q(w_{i-2},w_{i-1}) \cdot  P(w_i|w_{i-1})  &amp;&amp;&amp; otherwise \\<br/>
+\end{aligned}<br/>
+\right.\]</p>
+<h2 id="toc_13">语料库</h2></li>
+<li><p>训练语料和模型应用领域需要相关，最好一致，比如不要用中华字典语料取训练网络流行语应用</p></li>
+<li><p>语料有适当噪声没有关系，因为他跟贴近实际。</p></li>
+<li><p>训练数据理论上越多越好</p></li>
+<li><p>由于实际过程中大部分语料不足，不要片面追求高阶模型，因为高阶模型需要训练的参数多，需要的数据更多。</p></li>
+<li><p>对语料数据，处理中，对于一些有规律、模式的噪声应该加以清除过滤。</p>
+<h3 id="toc_14">本节概念</h3>
+<p>zipf定律<br/>
+卡茨退避法<br/>
+不平滑模型，即条件概率大部分为0的模型。<br/>
+概率估计，统计语言模型的训练好坏的艺术就是在统计样本不足的情况下如何更好的概率估计。<br/>
+古德图灵估计(Good-Turing Estimate)</p>
+<h3 id="toc_15">疑问</h3>
+<p>中文语料库是否具备zipf定律，如何运用中文语料库和英文语料库进行重现。</p></li>
+</ul>
+
+<h3 id="toc_16">本节数学符号</h3>
+
+<ul>
+<li>\(\#\) 语料库大小</li>
+<li>\(r\) 某个词在语料库中出现的次数为r</li>
+</ul>
+
+<h3 id="toc_17">参考链接</h3>
+
+<ul>
+<li><p><a href="http://www.52nlp.cn/%E4%B8%AD%E8%8B%B1%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E8%AF%AD%E6%96%99%E4%B8%8A%E7%9A%84word2vec%E5%AE%9E%E9%AA%8C">http://www.52nlp.cn/%E4%B8%AD%E8%8B%B1%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E8%AF%AD%E6%96%99%E4%B8%8A%E7%9A%84word2vec%E5%AE%9E%E9%AA%8C</a><br/>
+吴恩达马尔可夫<br/>
+<a href="http://open.163.com/movie/2008/1/2/N/M6SGF6VB4_M6SGKSC2N.html">http://open.163.com/movie/2008/1/2/N/M6SGF6VB4_M6SGKSC2N.html</a><br/>
+吴恩达序列模型-nlp<br/>
+<a href="https://mooc.study.163.com/learn/2001280005?tid=2001391038#/learn/content">https://mooc.study.163.com/learn/2001280005?tid=2001391038#/learn/content</a></p></li>
+<li><p>作者：luomgf</p></li>
+<li><p>163mail:luomgf</p></li>
+<li><p>说明：转载请注明出处，系本人原创阅读分享，欢迎有兴趣的机器学习、人工智能和自然语言处理技术学习的朋友一起交流</p></li>
+<li><p>地址：<a href="https://www.cnblogs.com/luomgf/p/10971773.html">https://www.cnblogs.com/luomgf/p/10971773.html</a></p></li>
+</ul>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15595496452148.html" 
+          title="Previous Post: 第四章 谈谈分词">&laquo; 第四章 谈谈分词</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <div class="site-a-logo"><img src="asset/img/WechatIMG1136.jpeg" /></div>
+            
+                <h1></h1>
+                <div class="site-des">爱生活爱代码儿</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/luomgf" title="GitHub">GitHub</a>
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E.html"><strong>数学之美</strong></a>
+        
+            <a href="tensorflow.html"><strong>tensorflow</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15598066043381.html">Tensorflow高维向量可视化</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15596119777920.html">整体介绍</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15595496452148.html">第四章 谈谈分词</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15592722366067.html">第3章 统计语言模型</a>
+			      </li>
+		     
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+
+  </body>
+</html>
