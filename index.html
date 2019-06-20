@@ -40,9 +40,13 @@
       <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
         <ul id="main-menu" class="left">
         
-        <li id=""><a target="self" href="index.html">Home</a></li>
+        <li id=""><a target="_self" href="index.html">主页</a></li>
         
-        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        <li id=""><a target="_self" href="archives.html">存档</a></li>
+        
+        <li id=""><a target="_self" href="./">生活</a></li>
+        
+        <li id=""><a target="_self" href="/">关于我</a></li>
         
         </ul>
 
@@ -69,9 +73,13 @@
 <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
         
-        <li><a target="self" href="index.html">Home</a></li>
+        <li><a target="_self" href="index.html">主页</a></li>
         
-        <li><a target="_self" href="archives.html">Archives</a></li>
+        <li><a target="_self" href="archives.html">存档</a></li>
+        
+        <li><a target="_self" href="./">生活</a></li>
+        
+        <li><a target="_self" href="/">关于我</a></li>
         
 
     <li><label>Categories</label></li>
@@ -296,12 +304,35 @@ P(S)=P(w_1,w_2,w3,\cdots,w_n)<br/>
 <p>N元模型<br/>
 \[ =P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_1,w_2),\cdots,P(w_i|w_{i-1-N},\cdots,w_{i-1}),P(w_n|,w_{n-1-N},\cdots,w_{n-1})) \]</p>
 
-<p>马尔可夫假设推导形成的常见语言模型<br/>
-| N=1 | Unigram | 一元语言模型 |<br/>
-| --- | --- | --- |<br/>
-| N=2 | Bigram | 二元语言模型 |<br/>
-| N=3 | Trigram  | 三元语言模型 |<br/>
-| N=？ | N-gram |  N元gram模型 |</p>
+<p>马尔可夫假设推导形成的常见语言模型</p>
+
+<table>
+<thead>
+<tr>
+<th>N=1</th>
+<th>Unigram</th>
+<th>一元语言模型</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>N=2</td>
+<td>Bigram</td>
+<td>二元语言模型</td>
+</tr>
+<tr>
+<td>N=3</td>
+<td>Trigram</td>
+<td>三元语言模型</td>
+</tr>
+<tr>
+<td>N=？</td>
+<td>N-gram</td>
+<td>N元gram模型</td>
+</tr>
+</tbody>
+</table>
 
 <p>对于任意给定单词\(w_i\),\(P(w_i)\)当取二元模型时：<br/>
 \[<br/>
