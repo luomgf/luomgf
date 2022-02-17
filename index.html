@@ -15,9 +15,7 @@
     <link rel="stylesheet" href="asset/css/docs.css" />
     <script src="asset/js/vendor/modernizr.js"></script>
     <script src="asset/js/vendor/jquery.js"></script>
-  <script src="asset/highlightjs/highlight.pack.js"></script>
-  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script>hljs.initHighlightingOnLoad();</script>
+ 
 <script type="text/javascript">
   function before_search(){
     var searchVal = 'site: ' + document.getElementById('search_input').value;
@@ -85,6 +83,8 @@
     <li><label>Categories</label></li>
 
         
+            <li><a href="%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86.html">项目管理</a></li>
+        
             <li><a href="%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E.html">数学之美</a></li>
         
             <li><a href="tensorflow.html">tensorflow</a></li>
@@ -110,6 +110,470 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
+                <a class="clearlink" href="16443998998895.html">
+                
+                  <h1>字符集介绍</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<div align="center"><font size='80'> 字符集</font></div>
+<p>作者:luomgf</p>
+<p>时间:2022/02/16</p>
+<p>转载请注明出处:<a href="https://www.cnblogs.com/luomgf/p/15904688.html">https://www.cnblogs.com/luomgf/p/15904688.html</a></p>
+<div class="mweb_toc"><ul>
+<li><a href="#1%E3%80%81%E7%9B%AE%E6%A0%87">1、目标</a>
+<ul>
+<li><a href="#1-1%E3%80%81%E5%AD%97%E7%AC%A6%E9%9B%86">1.1、字符集</a></li>
+<li><a href="#1-2%E3%80%81%E5%AD%97%E5%BD%A2">1.2、字形</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E5%B9%B3%E5%8F%B0%E8%BD%AF%E4%BB%B6%E8%AF%AD%E8%A8%80%E5%AF%B9%E4%BA%8E%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9A%84%E5%A4%84%E7%90%86">常见平台软件语言对于字符集的处理</a></li>
+<li><a href="#1-3%E3%80%81%E5%BA%94%E7%94%A8">1.3、 应用</a></li>
+<li><a href="#1-1%E3%80%81%E7%BC%96%E5%86%99python%E7%A8%8B%E5%BA%8F%E5%BA%93">1.1、编写python程序库</a></li>
+<li><a href="#%E7%BC%96%E5%86%99cc%E7%A8%8B%E5%BA%8F">编写c/c++程序</a></li>
+</ul>
+</li>
+<li><a href="#2%E3%80%81%E5%AD%97%E7%AC%A6%E9%9B%86">2、字符集</a>
+<ul>
+<li><a href="#2-1%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D">2.1、基本介绍</a>
+<ul>
+<li><a href="#ascii%E7%A0%81%E4%BB%8B%E7%BB%8D">ASCII码介绍</a>
+<ul>
+<li><a href="#ascii%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2%E6%97%B6%E9%97%B4%E7%BA%BF%E5%92%8C%E4%BA%8B%E4%BB%B6">ASCII发展历史时间线和事件</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BC%96%E7%A0%81%E7%9A%84%E5%8F%91%E5%B1%95%E4%B8%BB%E8%A6%81%E6%95%85%E4%BA%8B">编码的发展主要故事</a>
+<ul>
+<li><a href="#%E7%9B%B8%E5%85%B3%E6%A0%87%E5%87%86%E5%92%8C%E7%A0%94%E7%A9%B6">相关标准和研究</a></li>
+<li><a href="#ascii%E7%A0%81%E7%BC%96%E7%A0%81%E6%A6%82%E8%BF%B0%E4%B8%8E%E5%86%85%E5%AE%B9%E7%89%B9%E7%82%B9">ASCII码编码概述与内容特点</a></li>
+<li><a href="#ascii%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1">ASCII码的设计</a></li>
+<li><a href="#ascii%E7%A0%81%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%83%8C%E5%90%8E%E7%9A%84%E6%95%85%E4%BA%8B">ASCII码特殊字符背后的故事</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%A9%E5%B1%95ascii%E7%A0%81">扩展ASCII码</a>
+<ul>
+<li><a href="#ascii%E5%92%8Ciso8859%E7%9A%84%E5%85%B3%E7%B3%BB">ASCII和iso8859的关系</a></li>
+<li><a href="#%E4%B8%AD%E5%9B%BD%E7%9A%84ascii%E6%A0%87%E5%87%86">中国的ASCII标准</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#utf8%E7%BC%96%E7%A0%81%E7%9A%84%E4%BC%98%E5%8A%BF">utf8编码的优势</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E5%B9%B3%E5%8F%B0%E8%BD%AF%E4%BB%B6%E8%AF%AD%E8%A8%80%E5%AF%B9%E4%BA%8E%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9A%84%E5%A4%84%E7%90%86">常见平台软件语言对于字符集的处理</a>
+<ul>
+<li><a href="#python%E8%AF%AD%E8%A8%80">python语言</a></li>
+<li><a href="#c%E8%AF%AD%E8%A8%80%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E9%9B%86">c语言怎么处理字符集</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a>
+<ul>
+<li><a href="#%E6%A0%87%E5%87%86">标准</a>
+<ul>
+<li><a href="#%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95">标准清单</a></li>
+<li><a href="#%E6%A0%87%E5%87%86%E5%BC%95%E7%94%A8%E5%8F%91%E5%B1%95%E5%85%B3%E7%B3%BB">标准引用发展关系</a></li>
+</ul>
+</li>
+<li><a href="#%E9%99%84%E5%BD%95">附录</a></li>
+<li><a href="#%E6%9C%AF%E8%AF%AD%E5%92%8C%E6%9C%BA%E6%9E%84">术语和机构</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1><a id="1%E3%80%81%E7%9B%AE%E6%A0%87" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1、目标</h1>
+<p>希望你看过后能够明白世间的一切乱码问题,能够明白天下主要字符集的招式讨论.
+本次据介绍字符集,我想达到如下的目标,概括来讲就是,写明字符集是怎么产生的,最早的ASCII码是怎么来的,到后面unicode/gb2312/gb18030他们是怎么编码和设计的的,utf8的编码原理,这些字符集的发展伴随了国际那些标准的发布,中国是如何跟进的,发布了那些标准.字符又是怎么被显示出来的,如何显示当今宇宙最复杂的汉字biang.c/python/编程语言和终端是怎么处理字符集问题,字符集怎么转换如何实现等等. 字符集背后隐藏的那些计算机基础知识和发展历史.
+欢迎一键三联,支持写下去,当然如若你还有其他想了解的关于字符集的知识趣事可以在评论区留言告诉我,我可以更新进其中.</p>
+<h2><a id="1-1%E3%80%81%E5%AD%97%E7%AC%A6%E9%9B%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1、字符集</h2>
+<ol>
+<li>字符集的定义</li>
+<li>常见字符集及登记字符集</li>
+</ol>
+<blockquote>
+<ul>
+<li>2.1. ASCII码字符集</li>
+<li>2.2. 扩展ASCII码字符集</li>
+<li>2.3. GB2312字符集</li>
+<li>2.4. GB18030字符集</li>
+<li>2.5. unicode字符集</li>
+<li>2.6. utf8存储方式</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li>字符集涵盖知识</li>
+</ol>
+<blockquote>
+<ul>
+<li>字符编码规则区位/多平面/单字节</li>
+<li>字符编码存储16进制/ucs2/ucs4</li>
+</ul>
+</blockquote>
+<h2><a id="1-2%E3%80%81%E5%AD%97%E5%BD%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2、字形</h2>
+<blockquote>
+<ul>
+<li>字体矢量/点阵</li>
+<li>格式truetype/opentype</li>
+</ul>
+</blockquote>
+<h2><a id="%E5%B8%B8%E8%A7%81%E5%B9%B3%E5%8F%B0%E8%BD%AF%E4%BB%B6%E8%AF%AD%E8%A8%80%E5%AF%B9%E4%BA%8E%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9A%84%E5%A4%84%E7%90%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>常见平台软件语言对于字符集的处理</h2>
+<blockquote>
+<ul>
+<li>python语言</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<ol>
+<li>python是怎么支持unicode的,怎么实现utf8和unicode转换</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>python是怎么实现各种编码转换的</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>c语言怎么处理字符集</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<ol>
+<li>wchar_t是个啥</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>linux内核的点阵字体了解吗</li>
+</ul>
+</blockquote>
+<h2><a id="1-3%E3%80%81%E5%BA%94%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.3、 应用</h2>
+<blockquote>
+<ul>
+<li>宇宙最复杂汉字怎么在你的电脑上面显示出来</li>
+<li>宇宙最复杂汉字怎么在你的点阵嵌入式设备上面显示出来</li>
+<li>文本乱码</li>
+<li>汉化</li>
+<li>编码序列化传输</li>
+<li>网络传输,字符流与字节流</li>
+<li>终端一般怎么解决字符集,怎么检查乱码,用nc命令模拟,反查</li>
+<li>vim乱码问题怎么处理</li>
+</ul>
+</blockquote>
+<h2><a id="1-1%E3%80%81%E7%BC%96%E5%86%99python%E7%A8%8B%E5%BA%8F%E5%BA%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1、编写python程序库</h2>
+<ol>
+<li>点阵字符程序</li>
+</ol>
+<blockquote>
+<ul>
+<li>显示hzk字库点阵字符</li>
+<li>显示任意字符点阵字符</li>
+<li>输出任意字符点阵字模</li>
+<li>创建gb2312/gb18030字符集字库</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>字符集编码程序</li>
+</ol>
+<blockquote>
+<ul>
+<li>编码转换,仿照iconv</li>
+<li>打印某编码特征信息</li>
+</ul>
+<blockquote>
+<ul>
+<li>gb2312/gb18030 打印区位,国标码</li>
+<li>utf8打印二进制编码</li>
+<li>unicode打印平面</li>
+</ul>
+</blockquote>
+</blockquote>
+<h2><a id="%E7%BC%96%E5%86%99cc%E7%A8%8B%E5%BA%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>编写c/c++程序</h2>
+<h1><a id="2%E3%80%81%E5%AD%97%E7%AC%A6%E9%9B%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2、字符集</h1>
+<h2><a id="2-1%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1、基本介绍</h2>
+<p>字符集就是用用一个特定的数字去代表一个字符字形,从而形成的一系列数字构成的数据集合,即为字符集.</p>
+<p>《Windows程序设计》<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup>这本书当中,作者基本上介绍了ASCII字符集和UNICODE字符集以及C语言与WINDOWS编程处理字符集问题的技巧,算是比较全的.所以可以推荐读者看看这部分内容.《C Primer Plus》<sup class="footnote-ref"><a href="#fn2" id="fnref2">2</a></sup>这本书当中介绍了如何处理宽字符.</p>
+<h4><a id="ascii%E7%A0%81%E4%BB%8B%E7%BB%8D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ASCII码介绍</h4>
+<p>标准的ASCII码是一共128个的,由7位编码组成的字符集. 他主要区分的是ANSI标准和iso标准,ANSI标准是美国信息标准,ISO标准是考虑了全球的拉丁文的标准. iso8859-1的的0x00-0x7F就是对应US-ASCII码.</p>
+<h5><a id="ascii%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2%E6%97%B6%E9%97%B4%E7%BA%BF%E5%92%8C%E4%BA%8B%E4%BB%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ASCII发展历史时间线和事件</h5>
+<p>ASCII码定义开始于1963年,最近一次修订是1986年.ASCII的编码字符集思想来源如果要进行追踪,可以追寻到1837年摩尔斯电码,可以说摩尔斯电码是字符集的祖先.</p>
+<p>在国外的这篇文章<sup class="footnote-ref"><a href="#fn3" id="fnref3">3</a></sup>和维基百科<sup class="footnote-ref"><a href="#fn4" id="fnref4">4</a></sup>中,作者列举了ASCII码发布标准的版本,摘录如下:</p>
+<ol>
+<li>ASA X3.4-1963</li>
+<li>ASA X3.4-1965 (approved, but not published, nevertheless used by IBM 2260 &amp; 2265 Display Stations and IBM 2848 Display Control)</li>
+<li>USAS X3.4-1967</li>
+<li>USAS X3.4-1968</li>
+<li>ANSI X3.4-1977</li>
+<li>ANSI X3.4-1986</li>
+<li>ANSI X3.4-1986 (R1992)</li>
+<li>ANSI X3.4-1986 (R1997)</li>
+<li>ANSI INCITS 4-1986 (R2002)</li>
+<li>ANSI INCITS 4-1986 (R2007)</li>
+<li>(ANSI) INCITS 4-1986</li>
+<li>(ANSI) INCITS 4-1986</li>
+</ol>
+<h4><a id="%E7%BC%96%E7%A0%81%E7%9A%84%E5%8F%91%E5%B1%95%E4%B8%BB%E8%A6%81%E6%95%85%E4%BA%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>编码的发展主要故事</h4>
+<p>上面列举了ASCII码的发展历史时间线,下面对其发展历程中一些主要的事件做一些介绍</p>
+<ul>
+<li>1838年-1854年,摩尔斯电码,字母用点和横线编码
+这是字母编码字形图
+<img src="media/16443998998895/16449796147899.jpg" alt="" />
+这是从字符自然顺序给的编码表
+<img src="media/16443998998895/16449796583344.jpg" alt="" /></li>
+</ul>
+<p>这是从编码设计的角度给出编码规则
+<img src="media/16443998998895/16449816108147.png" alt="" /></p>
+<p>这张图我们仔细观察就会发现其实是一个二叉树,特点:常用字符编码短,每个父节点下的做节点为“.”右节点为“-”,以此类推进行编码.当然这个结论我在书中还没有得到证实,有那部书有这个提法.</p>
+<p>作为最早的字符集,在中文里面也有字符集,威基杰的《电报新书》就是最早基于康熙字典的字符集.</p>
+<p>电码形成的电文,用的是类似电视上那种滴滴嗒嗒的机器来发射的.
+<img src="media/16443998998895/16449819512540.jpg" alt="" /></p>
+<p>当然我们一些抗战题材中的密码传送也是这个原理,但是他不是用的摩尔斯电码,因为其是明码,谁都能看懂,所以每个军事单位就字节发明字符集,形成电码.然后电视上面抢来抢去的密码本就是字符集.</p>
+<ul>
+<li>20世纪50年代末,ASCII开始兴起
+这个时期编码开始出现雏形,但标准不统一.</li>
+<li>1963年,第一版ASCII码由美国定义ASA X3.4-1963,
+该版ASCII码是第一个由美国国家标准学会定义发布的有记录标准.如下是标准的封面页和设计页,详细内容请看扫描文件<sup class="footnote-ref"><a href="#fn5" id="fnref5">5</a></sup></li>
+</ul>
+<p>封面
+<img src="media/16443998998895/16450644180394.jpg" alt="" />
+设计
+<img src="media/16443998998895/16450644974005.jpg" alt="" />
+<img src="media/16443998998895/16450645118136.jpg" alt="" /></p>
+<ul>
+<li>
+<p>1967年,定义ASCII码.
+在1967年,算是定义了ASCII码,也比较接近现在的ASCII码定义.
+<img src="media/16443998998895/16450659452152.jpg" alt="" /></p>
+</li>
+<li>
+<p>1986年,ANSI X3.4-1986
+这也是最近一次美国官方ASCII码标准,也叫US- ASCII码.也是和后面国标iso/iec 8859-1一样
+<img src="media/16443998998895/16450665348397.jpg" alt="" /></p>
+</li>
+<li>
+<p>1981年,IBM推出8位字节256个字符组成的字符集</p>
+</li>
+</ul>
+<p>由于7位构成的128码位明显不能满足,所以ibm将字符集扩展到了8位,形成256位的字符集.且是第一个有代表性和与硬件密切结合的的字符集,伴随着ibm pc一起出售.</p>
+<ul>
+<li>1987年,ISO 8859-1——1987,“美国国家信息处理标准——8位字节编码图形字符集——第一部分:拉丁字母第1号”,即“拉丁语-1”</li>
+</ul>
+<p>这是第一次iso和iec合并发布8位编码字符集.</p>
+<ul>
+<li>1991年,ISO/IEC 646:1991,Information technology -- ISO 7-bit coded character set for information interchange</li>
+</ul>
+<p>他是 7位编码的最后一个ASCII标准,即替代ISO 646:1983标准.</p>
+<ul>
+<li>1998年,ISO/IEC 8859-1:1998发布,又称Latin-1或“西欧语言”</li>
+</ul>
+<p>这是第二次发布 8位编码的字符集,兼容ASCII码,更新替代:ISO/IEC 8859-1:1987,也是现金大多数软件使用的标准,其别名还有: iso-ir-100, csISOLatin1, latin1, l1, IBM819. Oracle数据库称WE8ISO8859P1的叫法.</p>
+<h5><a id="%E7%9B%B8%E5%85%B3%E6%A0%87%E5%87%86%E5%92%8C%E7%A0%94%E7%A9%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>相关标准和研究</h5>
+<h5><a id="ascii%E7%A0%81%E7%BC%96%E7%A0%81%E6%A6%82%E8%BF%B0%E4%B8%8E%E5%86%85%E5%AE%B9%E7%89%B9%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ASCII码编码概述与内容特点</h5>
+<h5><a id="ascii%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ASCII码的设计</h5>
+<h5><a id="ascii%E7%A0%81%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E8%83%8C%E5%90%8E%E7%9A%84%E6%95%85%E4%BA%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ASCII码特殊字符背后的故事</h5>
+<h4><a id="%E6%89%A9%E5%B1%95ascii%E7%A0%81" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>扩展ASCII码</h4>
+<h5><a id="ascii%E5%92%8Ciso8859%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ASCII和iso8859的关系</h5>
+<p><a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:8859:-1:ed-1:v1:en">https://www.iso.org/obp/ui/#iso:std:iso-iec:8859:-1:ed-1:v1:en</a></p>
+<p><img src="media/16443998998895/16450753691903.jpg" alt="" /></p>
+<h5><a id="%E4%B8%AD%E5%9B%BD%E7%9A%84ascii%E6%A0%87%E5%87%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>中国的ASCII标准</h5>
+<p>GB/T 1988-1998</p>
+<h2><a id="utf8%E7%BC%96%E7%A0%81%E7%9A%84%E4%BC%98%E5%8A%BF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>utf8编码的优势</h2>
+<p>在《Linux C编程一站式学习》<sup class="footnote-ref"><a href="#fn6" id="fnref6">6</a></sup>中,作者演示了直接使用utf8编码,也就是现在我们大家习惯的编辑器设置编码,用c语言处理的优势.因为其编码就是在C语言当中也是可以直接处理的,字符串不用写“L”标志.当然其相应的字符串函数也不能用了.</p>
+<h2><a id="%E5%B8%B8%E8%A7%81%E5%B9%B3%E5%8F%B0%E8%BD%AF%E4%BB%B6%E8%AF%AD%E8%A8%80%E5%AF%B9%E4%BA%8E%E5%AD%97%E7%AC%A6%E9%9B%86%E7%9A%84%E5%A4%84%E7%90%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>常见平台软件语言对于字符集的处理</h2>
+<h3><a id="python%E8%AF%AD%E8%A8%80" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>python语言</h3>
+<blockquote>
+<blockquote>
+<ul>
+<li>
+<ol>
+<li>python是怎么支持unicode的,怎么实现utf8和unicode转换</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>python是怎么实现各种编码转换的</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3><a id="c%E8%AF%AD%E8%A8%80%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E9%9B%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>c语言怎么处理字符集</h3>
+<blockquote>
+<blockquote>
+<ul>
+<li>
+<ol>
+<li>wchar_t是个啥
+ANSI/ISO 9899——1990,ANSI C</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>linux内核的点阵字体了解吗</li>
+</ul>
+</blockquote>
+<pre class="line-numbers"><code class="language-plain_text">git  log  ./lib/fonts/font_8x16.c 
+git log  --  drivers/video/console/font_8x16.c
+
+</code></pre>
+<h1><a id="%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考文献</h1>
+<h2><a id="%E6%A0%87%E5%87%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>标准</h2>
+<h3><a id="%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>标准清单</h3>
+<h3><a id="%E6%A0%87%E5%87%86%E5%BC%95%E7%94%A8%E5%8F%91%E5%B1%95%E5%85%B3%E7%B3%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>标准引用发展关系</h3>
+<p><img src="media/16443998998895/16450800303312.jpg" alt="" /></p>
+<h2><a id="%E9%99%84%E5%BD%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>附录</h2>
+<h2><a id="%E6%9C%AF%E8%AF%AD%E5%92%8C%E6%9C%BA%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>术语和机构</h2>
+<ul>
+<li>ISO</li>
+</ul>
+<p>ISO,是国际标准化组织（InternationalOrganiza－tionforStandardization）的缩略语，是目前世界上最大、最有权威性的国际标准化专门机构。成立于1947年2月23日,总部设在瑞士日内瓦.前身是国家标准化协会国际联合会ISA和联合国标准协调委员会UNSCC.1947年ISO成立时，IEC即与ISO签订协议：作为电工部门并入ISO，但在技术和财政上仍保持其独立性。1976年ISO与IEC达成新的协议：两组织都是法律上独立的团体并自愿合作。协议分工，IEC负责电工电子领域的国际标准化工作，其他领域则由ISO负责。</p>
+<p>按照ISO章程，其成员分为团体成员和通信成员。团体成员是指最有代表性的国家标准化机构，且每一个国家只能有一个机构代表其国家参加ISO。通讯成员是指尚未建立国家标准化机构的发展中国家（或地区）。通讯成员不参加ISO技术工作，但可了解ISO的工作进展情况。
+更详细介绍:<a href="http://www.sac.gov.cn/gzfw/jgcx/gjbzh/gjbzh/201506/t20150630_190225.htm">http://www.sac.gov.cn/gzfw/jgcx/gjbzh/gjbzh/201506/t20150630_190225.htm</a></p>
+<blockquote>
+<ul>
+<li>字符集部分标准ISO涉及内容
+字符集部分标准位于: <a href="https://www.iso.org/committee/45050/x/catalogue/p/1/u/0/w/0/d/0">https://www.iso.org/committee/45050/x/catalogue/p/1/u/0/w/0/d/0</a>
+stage归类上:属于90.93和60.60.
+<img src="media/16443998998895/16450691631067.jpg" alt="" /></li>
+</ul>
+</blockquote>
+<p>（二）IEC</p>
+<p>IEC是国际电工委员会（InternationalElec－trotechnicalCommission）的缩略语，成立于1906年，负责有关电气工程和电子工程领域中的国际标准化工作，总部设在瑞士日内瓦。</p>
+<p>IEC的宗旨是，促进电气、电子工程领域中标准化及有关问题的国际合作，增进国际间的相互了解。目前，IEC的工作领域已由单纯研究电气设备、电机的名词术语和功率等问题扩展到电子、电力、微电子及其应用、通讯、视听、机器人、信息技术、新型医疗器械和核仪表等电工技术的各个方面。IEC标准已涉及了世界市场中35%的产品。</p>
+<p>（三）ITU</p>
+<p>ITU是国际电信联盟（International Telecommunication Union）的缩略语，成立于1865年5月17日，是由法、德、俄等20个国家在巴黎会议上为了顺利实现国际电报通信而成立的国际组织。</p>
+<p>ITU的实质性工作由三大部门承担：国际电信联盟标准化部门、国际电信联盟无线电通信部门和国际电信联盟电信发展部门。其中电信标准化部门由原来的国际电报电话咨询委员会（CCIR）和标准化工作部门合并而成，主要职责是完成国际电信联盟有关电信标准化的目标，使全世界的电信标准化。ITU目前已制定了2000多项国际标准。</p>
+<p>先有ITU，再有IEC，最后ISO（想把所有标准都收录，曾合并IEC，后IEC单独发展）</p>
+<p>ANSI</p>
+<p>美国国家标准学会（ANSI-American National Standards Institute）是IEC和ISO的理事和理事局成员。</p>
+<p>IEEE，全称是Institute of Electrical and Electronics Engineers (美国)电气和电子工程师协会）,球最大的专业学术组织,IEEE的标准制定内容包括电气与电子设备、试验方法、原器件、符号、定义以及测试方法等多个领域。</p>
+<p>ECMA 是“European Computer Manufactures Association”的缩写，中文称欧洲计算机制造联合会。是1961年成立的旨在建立统一的电脑操作格式标准--包括程序语言和输入输出的组织。</p>
+<p>ECMA-262 ECMAScript （规范化 脚本(script)语言）</p>
+<p>每个组织都有自己注册的标准，有的标准被ISO/IEC收录（ECMA-146 4mm DAT 数据插件（和一样ISO/IEC 11321））</p>
+<section class="footnotes">
+<ol>
+<li id="fn1">
+<p>《Windows程序设计》第5版 (美)Charles Petzold著 方敏、张胜译,第2章 Unicode简介 页码:P20-P36 <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2">
+<p>《C Primer Plus》第6版 B.7 参考资料VII：扩展字符支持 ,页码:P716-P720 <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn3">
+<p>《7-bit character sets发展历史》 <a href="#fnref3" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn4">
+<p><a href="https://en.wikipedia.org/wiki/ASCII">ASCII维基百科介绍</a>,2 History章 <a href="#fnref4" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn5">
+<p>American Standard Code for Information Interchange ASA standard X3.4-1963.pdf <a href="#fnref5" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn6">
+<p>《Linux C编程一站式学习》,宋劲杉,附录 A. 字符编码,页码:P727-P734 <a href="#fnref6" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2022/2/9</span>
+                    
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15634636686808.html">
+                
+                  <h1>演示</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>最好的方式就是预演</p>
+<ul>
+<li>现场环境提前了解,避免转接头、网络、投影效果不行等问题</li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/7/18</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86.html'>项目管理</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15634636540680.html">
+                
+                  <h1>参考书籍</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>《电子政务工程造价指导书》第三版</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/7/18</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86.html'>项目管理</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
                 <a class="clearlink" href="15598066043381.html">
                 
                   <h1>Tensorflow高维向量可视化</h1>
@@ -118,6 +582,7 @@
                       <div class="a-content-text">
                         
                         	<p><a href="https://www.cnblogs.com/cloud-ken/p/9329703.html">https://www.cnblogs.com/cloud-ken/p/9329703.html</a></p>
+<p><a href="http://projector.tensorflow.org/">http://projector.tensorflow.org/</a></p>
 
                         
                       </div>
@@ -131,6 +596,8 @@
           				  
           					    <span class="posted-in"><a href='tensorflow.html'>tensorflow</a></span>
           				   
+                    
+
                   </div>
                   <div class="more-right right">
                   <span class="comments">
@@ -150,8 +617,8 @@
                       
                       <div class="a-content-text">
                         
-                        	<p>书读厚再读薄<br/>
-学而不思则罔思而不学则殆<br/>
+                        	<p>书读厚再读薄
+学而不思则罔思而不学则殆
 前面介绍了语言模型，紧接着介绍了分词</p>
 
                         
@@ -166,6 +633,8 @@
           				  
           					    <span class="posted-in"><a href='%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E.html'>数学之美</a></span>
           				   
+                    
+
                   </div>
                   <div class="more-right right">
                   <span class="comments">
@@ -199,6 +668,8 @@
           				  
           					    <span class="posted-in"><a href='%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E.html'>数学之美</a></span>
           				   
+                    
+
                   </div>
                   <div class="more-right right">
                   <span class="comments">
@@ -224,88 +695,67 @@
 <li>说明：转载请注明出处，系本人原创阅读分享，欢迎有兴趣的机器学习、人工智能和自然语言处理技术学习的朋友一起交流</li>
 <li>地址：<a href="https://www.cnblogs.com/luomgf/p/10971773.html">https://www.cnblogs.com/luomgf/p/10971773.html</a></li>
 </ul>
-
+<div class="mweb_toc"><ul>
+<li><a href="#%E7%AC%AC3%E7%AB%A0%E7%BB%9F%E8%AE%A1%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B">第3章 统计语言模型</a>
 <ul>
-<li>
-<a href="#toc_0">第3章 统计语言模型</a>
+<li><a href="#1%E3%80%81%E7%94%A8%E6%95%B0%E5%AD%A6%E7%9A%84%E6%96%B9%E6%B3%95%E6%8F%8F%E8%BF%B0%E8%AF%AD%E8%A8%80%E8%A7%84%E5%BE%8B">1、用数学的方法描述语言规律</a></li>
+<li><a href="#2%E3%80%81%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB%EF%BC%9A%E7%BB%9F%E8%AE%A1%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%B7%A5%E7%A8%8B%E8%AF%80%E7%AA%8D">2、延伸阅读：统计语言模型的工程诀窍</a>
 <ul>
-<li>
-<a href="#toc_1">1、用数学的方法描述语言规律</a>
+<li><a href="#2-1%E3%80%81%E9%AB%98%E9%98%B6%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B">2.1、高阶语言模型</a>
 <ul>
-<li>
-<a href="#toc_2">本节提到的概念</a>
-</li>
-<li>
-<a href="#toc_3">本节人物</a>
-</li>
+<li><a href="#n%E5%90%88%E9%80%82%E7%9A%84%E5%8F%96%E5%80%BC%E6%98%AF2-3">N合适的取值是2-3</a></li>
+<li><a href="#%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%81%87%E8%AE%BE%E5%B1%80%E9%99%90%E6%80%A7%E5%92%8C%E6%96%87%E6%9C%AC%E9%95%BF%E7%A8%8B%E4%BE%9D%E8%B5%96%E6%80%A7">马尔可夫假设局限性和文本长程依赖性</a></li>
 </ul>
 </li>
-<li>
-<a href="#toc_4">2、延伸阅读：统计语言模型的工程诀窍</a>
+<li><a href="#2-2%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%AD%E7%BB%83%E3%80%81%E9%9B%B6%E6%A6%82%E7%8E%87%E9%97%AE%E9%A2%98%E5%92%8C%E5%B9%B3%E6%BB%91%E6%96%B9%E6%B3%95">2.2 模型的训练、零概率问题和平滑方法</a>
 <ul>
-<li>
-<a href="#toc_5">2.1、高阶语言模型</a>
+<li><a href="#2-2-1%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%AD%E7%BB%83">2.2.1 模型的训练</a></li>
+<li><a href="#2-2-2%E9%9B%B6%E6%A6%82%E7%8E%87%E9%97%AE%E9%A2%98">2.2.2 零概率问题</a>
 <ul>
-<li>
-<a href="#toc_6">N合适的取值是2-3</a>
-</li>
-<li>
-<a href="#toc_7">马尔可夫假设局限性和文本长程依赖性</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_8">2.2 模型的训练、零概率问题和平滑方法</a>
-<ul>
-<li>
-<a href="#toc_9">2.2.1 模型的训练</a>
-</li>
-<li>
-<a href="#toc_10">2.2.2 零概率问题</a>
-<ul>
-<li>
-<a href="#toc_11">2.2.2.1 问题出现的原因</a>
-</li>
-<li>
-<a href="#toc_16">本节数学符号</a>
-</li>
-<li>
-<a href="#toc_17">参考链接</a>
-</li>
+<li><a href="#2-2-2-1%E9%97%AE%E9%A2%98%E5%87%BA%E7%8E%B0%E7%9A%84%E5%8E%9F%E5%9B%A0">2.2.2.1 问题出现的原因</a></li>
+<li><a href="#2-2-2-2-2-0%E6%A6%82%E7%8E%87%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95">2.2.2.2.2 0概率问题解决办法</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-
-
-<h1 id="toc_0">第3章 统计语言模型</h1>
-
-<h2 id="toc_1">1、用数学的方法描述语言规律</h2>
-
-<p>\[\begin{equation}<br/>
-P(S)=P(w_1,w_2,w3,\cdots,w_n)<br/>
-\end{equation}\]<br/>
-根据条件概率公式：<br/>
-\[\begin{equation}<br/>
- =P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_1,w_2),\cdots,P(w_i|w_1,w_2,w_3,\cdots,w_{i-1}),P(w_n|w_1,w_2,w_3,\cdots,w_{n-1})) <br/>
- \end{equation}\]</p>
-
-<p>根据马尔可夫假设：<br/>
-当N=2，二元模型<br/>
-   \[ \approx P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_2)P(w_i|w_{i-1})P(w_n|w_{n-1})  \]<br/>
-   当N=3，三元模型<br/>
- \[<br/>
-\begin{equation}<br/>
-=P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_1,w_2)P(w_4|w_1,w_2，w_3)P(w_5|w_2,w_3，w_4),\cdots,P(w_i|w_{i-3},w_{i-2},w_{i-1}),P(w_n|w_{n-3},w_{n-2},w_{n-1})) <br/>
-\end{equation}<br/>
-\]</p>
-
-<p>N元模型<br/>
-\[ =P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_1,w_2),\cdots,P(w_i|w_{i-1-N},\cdots,w_{i-1}),P(w_n|,w_{n-1-N},\cdots,w_{n-1})) \]</p>
-
-<p>马尔可夫假设推导形成的常见语言模型</p>
-
+</li>
+<li><a href="#%E8%AF%AD%E6%96%99%E5%BA%93">语料库</a>
+<ul>
+<li><a href="#%E6%9C%AC%E8%8A%82%E6%A6%82%E5%BF%B5">本节概念</a></li>
+<li><a href="#%E7%96%91%E9%97%AE">疑问</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h1><a id="%E7%AC%AC3%E7%AB%A0%E7%BB%9F%E8%AE%A1%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>第3章 统计语言模型</h1>
+<p>n元模型也就是统计语言模型，也是n-1阶马尔可夫模型，基于的是马尔可夫假设</p>
+<h2><a id="1%E3%80%81%E7%94%A8%E6%95%B0%E5%AD%A6%E7%9A%84%E6%96%B9%E6%B3%95%E6%8F%8F%E8%BF%B0%E8%AF%AD%E8%A8%80%E8%A7%84%E5%BE%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1、用数学的方法描述语言规律</h2>
+\[\begin{equation}
+P(S)=P(w_1,w_2,w3,\cdots,w_n)
+\end{equation}
+\]
+<p>根据条件概率公式：</p>
+\[\begin{equation}
+ =P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_1,w_2),\cdots,P(w_i|w_1,w_2,w_3,\cdots,w_{i-1}),P(w_n|w_1,w_2,w_3,\cdots,w_{n-1})) 
+ \end{equation}
+\]
+<p>根据马尔可夫假设：
+当N=2，二元模型</p>
+\[ \approx P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_2)P(w_i|w_{i-1})P(w_n|w_{n-1})  
+\]
+<p>当N=3，三元模型</p>
+\[\begin{equation}
+=P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_1,w_2)P(w_4|w_1,w_2，w_3)P(w_5|w_2,w_3，w_4),\cdots,P(w_i|w_{i-3},w_{i-2},w_{i-1}),P(w_n|w_{n-3},w_{n-2},w_{n-1})) 
+\end{equation}
+\]
+<p>N元模型</p>
+\[ =P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_1,w_2),\cdots,P(w_i|w_{i-1-N},\cdots,w_{i-1}),P(w_n|,w_{n-1-N},\cdots,w_{n-1})) 
+\]
+<p>马尔可夫假设推导形成的常见语言模型
+<a href="https://blog.csdn.net/dark_scope/article/details/63683686">Unigram的马尔可夫推导</a></p>
 <table>
 <thead>
 <tr>
@@ -314,7 +764,6 @@ P(S)=P(w_1,w_2,w3,\cdots,w_n)<br/>
 <th>一元语言模型</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>N=2</td>
@@ -333,188 +782,180 @@ P(S)=P(w_1,w_2,w3,\cdots,w_n)<br/>
 </tr>
 </tbody>
 </table>
-
-<p>对于任意给定单词\(w_i\),\(P(w_i)\)当取二元模型时：<br/>
-\[<br/>
-\begin{equation}<br/>
-P(w_i) = \frac{<br/>
-    P(w_{i-1},w_i)<br/>
-}{<br/>
-     P(w_{i-1})<br/>
-}<br/>
-\label{eq:qmath}<br/>
-\end{equation}<br/>
-\]<br/>
-\( P(w_{i-1},w_i)\)是联合概率，\(P(w_{i-1})\)是边缘概率。我们要计算这两个的概率，需要用到大数定理。当有大量重复事件时，事件发生的频率接近于概率。<br/>
-\[<br/>
-\begin{equation}<br/>
-f(w_{i-1},w_i)=\frac{\#(W_{i-1},w_i)}{\#}<br/>
-\end{equation}<br/>
-\]<br/>
-\[<br/>
-\begin{equation}<br/>
-f(w_{i-1})=\frac{\#(W_{i-1})}{\#}<br/>
-\end{equation}<br/>
-\]<br/>
-当统计量足够，相对频度和概率就几乎相等。（同时这个地方的假设我个人认为也是对我们的语料库提出了要求。）<br/>
-\[<br/>
-\begin{equation}<br/>
-f(w_{i-1},w_i)=\frac{\#(W_{i-1},w_i)}{\#}\approx P(w_{i-1},w_i)<br/>
-\end{equation}<br/>
-\]<br/>
-\[<br/>
-\begin{equation}<br/>
-f(w_{i-1})=\frac{\#(W_{i-1})}{\#}\approx P(w_{i-1})<br/>
-\end{equation}<br/>
-\]<br/>
-\[<br/>
-\begin{equation}<br/>
-P(w_i|w_{i-1})=\frac{P(w_{i-1},w_i)}{P(w_{i-1})}\approx \frac{f(w_{i-1},w_i)}{f(w_{i-1})}<br/>
-=\frac{\frac{\#(w_{i-1},w_i)}{\#}}{\frac{\#(w_{i-1})}{\#}}<br/>
-=\frac{\#(w_{i-1},w_i)}{\#(w_{i-1})}<br/>
-\end{equation}<br/>
- \]</p>
-
-<h3 id="toc_2">本节提到的概念</h3>
-
-<p>联合概率<br/>
-边缘概率<br/>
-条件概率<br/>
-马尔可夫假设<br/>
-大数据定理<br/>
-语料库<br/>
+<p>对于任意给定单词\(w_i\),\(P(w_i)\)当取二元模型时：</p>
+\[\begin{equation}
+P(w_i) = \frac{
+    P(w_{i-1},w_i)
+}{
+     P(w_{i-1})
+}
+\label{eq:qmath}
+\end{equation}
+\]
+<p>\( P(w_{i-1},w_i)\)是联合概率，\(P(w_{i-1})\)是边缘概率。我们要计算这两个的概率，需要用到大数定理。当有大量重复事件时，事件发生的频率接近于概率。</p>
+\[\begin{equation}
+f(w_{i-1},w_i)=\frac{\#(W_{i-1},w_i)}{\#}
+\end{equation}
+\]
+\[\begin{equation}
+f(w_{i-1})=\frac{\#(W_{i-1})}{\#}
+\end{equation}
+\]
+<p>当统计量足够，相对频度和概率就几乎相等。（同时这个地方的假设我个人认为也是对我们的语料库提出了要求。）</p>
+\[\begin{equation}
+f(w_{i-1},w_i)=\frac{\#(W_{i-1},w_i)}{\#}\approx P(w_{i-1},w_i)
+\end{equation}
+\]
+\[\begin{equation}
+f(w_{i-1})=\frac{\#(W_{i-1})}{\#}\approx P(w_{i-1})
+\end{equation}
+\]
+\[
+\begin{equation}
+P(w_i|w_{i-1})=\frac{P(w_{i-1},w_i)}{P(w_{i-1})}\approx \frac{f(w_{i-1},w_i)}{f(w_{i-1})}
+=\frac{\frac{\#(w_{i-1},w_i)}{\#}}{\frac{\#(w_{i-1})}{\#}}
+=\frac{\#(w_{i-1},w_i)}{\#(w_{i-1})}
+\end{equation}
+ 
+\]
+<p>###本节提到的概念
+联合概率
+边缘概率
+条件概率
+马尔可夫假设
+大数据定理
+语料库
 相对频度</p>
-
-<h3 id="toc_3">本节人物</h3>
-
-<p>费里尼克<br/>
-马尔可夫<br/>
-李开复<br/>
+<p>###本节人物
+费里尼克
+马尔可夫
+李开复
 罗赛塔</p>
-
-<h2 id="toc_4">2、延伸阅读：统计语言模型的工程诀窍</h2>
-
-<h3 id="toc_5">2.1、高阶语言模型</h3>
-
-<h4 id="toc_6">N合适的取值是2-3</h4>
-
+<h2><a id="2%E3%80%81%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB%EF%BC%9A%E7%BB%9F%E8%AE%A1%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%B7%A5%E7%A8%8B%E8%AF%80%E7%AA%8D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2、延伸阅读：统计语言模型的工程诀窍</h2>
+<h3><a id="2-1%E3%80%81%E9%AB%98%E9%98%B6%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1、高阶语言模型</h3>
+<h4><a id="n%E5%90%88%E9%80%82%E7%9A%84%E5%8F%96%E5%80%BC%E6%98%AF2-3" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>N合适的取值是2-3</h4>
 <ul>
 <li>空间复杂度</li>
 <li>计算速度</li>
 </ul>
-
-<h4 id="toc_7">马尔可夫假设局限性和文本长程依赖性</h4>
-
-<h3 id="toc_8">2.2 模型的训练、零概率问题和平滑方法</h3>
-
-<h4 id="toc_9">2.2.1 模型的训练</h4>
-
+<h4><a id="%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%81%87%E8%AE%BE%E5%B1%80%E9%99%90%E6%80%A7%E5%92%8C%E6%96%87%E6%9C%AC%E9%95%BF%E7%A8%8B%E4%BE%9D%E8%B5%96%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>马尔可夫假设局限性和文本长程依赖性</h4>
+<h3><a id="2-2%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%AD%E7%BB%83%E3%80%81%E9%9B%B6%E6%A6%82%E7%8E%87%E9%97%AE%E9%A2%98%E5%92%8C%E5%B9%B3%E6%BB%91%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2 模型的训练、零概率问题和平滑方法</h3>
+<h4><a id="2-2-1%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%AD%E7%BB%83" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2.1 模型的训练</h4>
 <p>使用语言模型的条件是得知道所有词的出现条件概率值，然后将他们按照预测的句子概率相乘得到句子概率。所以我们需要先计算每一个的条件概率，这些概率值我们称为模型的参数。通过对语料的统计，得到这些参数的过程称作模型的训练。</p>
-
-<h4 id="toc_10">2.2.2 零概率问题</h4>
-
-<h5 id="toc_11">2.2.2.1 问题出现的原因</h5>
-
-<p>假如我们使用二元统计语言模型，根据前面的推理公式有：<br/>
-   \[ P(S)\approx P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_2)P(w_i|w_{i-1})P(w_n|w_{n-1})  \]<br/>
-   \[<br/>
-\begin{equation}<br/>
-P(w_i|w_{i-1})=\frac{P(w_{i-1},w_i)}{P(w_{i-1})}\approx \frac{f(w_{i-1},w_i)}{f(w_{i-1})}<br/>
-=\frac{\frac{\#(w_{i-1},w_i)}{\#}}{\frac{\#(w_{i-1})}{\#}}<br/>
-=\frac{\#(w_{i-1},w_i)}{\#(w_{i-1})}<br/>
-\end{equation}<br/>
-\]<br/>
-我们考虑以下两种情况</p>
-
+<h4><a id="2-2-2%E9%9B%B6%E6%A6%82%E7%8E%87%E9%97%AE%E9%A2%98" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2.2 零概率问题</h4>
+<h5><a id="2-2-2-1%E9%97%AE%E9%A2%98%E5%87%BA%E7%8E%B0%E7%9A%84%E5%8E%9F%E5%9B%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2.2.1 问题出现的原因</h5>
+<p>假如我们使用二元统计语言模型，根据前面的推理公式有：</p>
+\[ P(S)\approx P(w_1|&lt;s&gt;)P(w_2|w_1)P(w_3|w_2)P(w_i|w_{i-1})P(w_n|w_{n-1})  
+\]
+\[\begin{equation}
+P(w_i|w_{i-1})=\frac{P(w_{i-1},w_i)}{P(w_{i-1})}\approx \frac{f(w_{i-1},w_i)}{f(w_{i-1})}
+=\frac{\frac{\#(w_{i-1},w_i)}{\#}}{\frac{\#(w_{i-1})}{\#}}
+=\frac{\#(w_{i-1},w_i)}{\#(w_{i-1})}
+\end{equation}
+\]
+<p>我们考虑以下两种情况</p>
 <ul>
-<li>当\(\#(w_{i-1},w_i)=0\),即该联合词在语料库中一次都没有出现。则，\(P(w_i|w_{i-1})=0\).</li>
-<li><p>当\(\#(w_{i-1},w_i)=1,\#(w_{i-1})=1 \),即该联合词和前面的词在语料库中只出现一次。则，\(P(w_i|w_{i-1})=1=100\%\).<br/>
-以上两种情况，从数学的推导上面看似是没有问题，但是我们结合现实情况考虑以下，这样的结论是否是完备和太过于绝对。即当该词在语料库中一次都没有我们就说这个不合理，当两个都出现1次就一定会出现，显然语料库是有可能不完整和充分的。因此这样的结论和概率是不合适的，需要我们解决该问题。</p></li>
-<li><p><strong>运用更为通俗的学生例子加以解释</strong></p>
-<h5 id="toc_12">2.2.2.2.2 0概率问题解决办法</h5>
-<p>最直接的办法：增加数据量，因为我们都知道根据大数定理，当量一定程度后其频率都比较接近概率，因此我们对这些出现一次的再增加就可以使其逼近真实概率。<br/>
-但是现实生活中大的数据量只是一个相对的概念，因此最后都会面临一个0概率或者100%的问题。</p></li>
-<li><p>古德图灵估计原理：<br/>
-对于没有看见的事件，我们不能认为他发生的概率是0，因此我们从概率总理中，分配一个很小的比例给这些没有看见的事件。这样以来看见的那些时间的概率总和就要小于1了，因此，需要将所有看见的事件概率<strong>调小</strong>一点。至于小多少。要根据“越是不可信的统计折扣越多的”的方法进行。</p></li>
-<li><p>古德-图灵估计语料估计过程<br/>
-假定在语料库中出现r次的词有\(N_r\)个，特别地，未出现的词数量\(N_0\)个，语料库的大小为N。则有：<br/>
-\[\begin{equation}<br/>
-N=\sum_{r=1}^\infty rN_r <br/>
-\end{equation} \]<br/>
-这个的意思就是，比如出现100次的有“我”“你”“他”三个词，则N=3*100=300<br/>
-对于出现r次的词在整个语料库中的相对频度则是：<br/>
-\[\begin{equation}<br/>
-出现r次的词在整个语料库中的相对频度=rN_r/N<br/>
-\end{equation}\]<br/>
- 现在我们看是如何运用的<br/>
- 如果r次数比较小--》统计不可考---〉需要调整---》这个地方我们调整次数即可---〉用\(d_r\)代替r---&gt;其满足如下古德图灵公式：<br/>
- \[<br/>
- d_r=(r+1)N_{r+1}/N_r=(r+1)\frac{N_{r+1}}{N_r}<br/>
- \]<br/>
- 同时以下等式也是成立的：<br/>
-\(\sum_rd_r\cdot N_r=N\)</p></li>
-<li><p>zipf定律<br/>
-背景知识：根据观察一般语料库中，出现一次的词的数量比出现两次的多，出现两次的比出现三次的多。即出现次数越多的词，数量越少，出现次数越少的词数量越多。这个很好理解，常用词出现的次数很多，但是数量很少，其他不常用词出现次数少，但是量大，因为中文或者词语有几千个字，常用的不多，所以出现次数越多的单身数量却不多，不常用字生僻字还是占据了很大一部分，所以数量多，但是用的次数少。<br/>
-理解记忆小技巧：这就好像，r类似考试的100道题，能够做100分的活着高分的能人数很少，但是做个普通分数或者低分的人数量很多，有些类似或者可以这么记。<br/>
-即,只有极少数的词被经常使用,而绝大多数词很少被使用.</p></li>
-<li><p>古德图灵估计-2元模型<br/>
-\[<br/>
-P(w_i|w_{i-1})= \left\{<br/>
-\begin{aligned}<br/>
-f(w_i|w_{i-1})  &amp;&amp;&amp; if \#(w_{i-1},w_i) &gt;=T  \\<br/>
-f_{gt}(w_i|w_{i-1}) &amp;&amp;&amp; if 0&lt;\#(w_{i-1},w_i)&lt; T \\<br/>
-Q(w_{i-1}) \cdot  f(w_i)  &amp;&amp;&amp; otherwise \\<br/>
-\end{aligned}<br/>
-\right.\]<br/>
-\[<br/>
-Q(w_{i-1})=\frac{1-\sum_\limits{w_i seen}P(w_i|w_{i-1})}{<br/>
-\sum_\limits{w_i seen}f(w_i)<br/>
-}<br/>
-\]</p></li>
-<li><p>古德图灵估计-3元模型<br/>
-\[<br/>
-P(w_i|w_{i-2},w_{i-1})= \left\{<br/>
-\begin{aligned}<br/>
-f(w_i|w_{i-2,w_{i-1}})  &amp;&amp;&amp; if \#(w_{i-2},w_{i-1},w_i) &gt;=T  \\<br/>
-f_{gt}(w_i|w_{i-2},w{i-1}) &amp;&amp;&amp; if 0&lt;\#(w_{i-2},w_{i-1},w_i)&lt; T \\<br/>
-Q(w_{i-2},w_{i-1}) \cdot  P(w_i|w_{i-1})  &amp;&amp;&amp; otherwise \\<br/>
-\end{aligned}<br/>
-\right.\]</p>
-<h2 id="toc_13">语料库</h2></li>
-<li><p>训练语料和模型应用领域需要相关，最好一致，比如不要用中华字典语料取训练网络流行语应用</p></li>
-<li><p>语料有适当噪声没有关系，因为他跟贴近实际。</p></li>
-<li><p>训练数据理论上越多越好</p></li>
-<li><p>由于实际过程中大部分语料不足，不要片面追求高阶模型，因为高阶模型需要训练的参数多，需要的数据更多。</p></li>
-<li><p>对语料数据，处理中，对于一些有规律、模式的噪声应该加以清除过滤。</p>
-<h3 id="toc_14">本节概念</h3>
-<p>zipf定律<br/>
-卡茨退避法<br/>
-不平滑模型，即条件概率大部分为0的模型。<br/>
-概率估计，统计语言模型的训练好坏的艺术就是在统计样本不足的情况下如何更好的概率估计。<br/>
-古德图灵估计(Good-Turing Estimate)</p>
-<h3 id="toc_15">疑问</h3>
-<p>中文语料库是否具备zipf定律，如何运用中文语料库和英文语料库进行重现。</p></li>
+<li>当\(\#(w_{i-1},w_i)=0\),即该联合词在语料库中一次都没有出现。则，$P(w_i|w_{i-1})=0$.</li>
+<li>当\(\#(w_{i-1},w_i)=1,\#(w_{i-1})=1 \),即该联合词和前面的词在语料库中只出现一次。则，$P(w_i|w_{i-1})=1=100%$.
+以上两种情况，从数学的推导上面看似是没有问题，但是我们结合现实情况考虑以下，这样的结论是否是完备和太过于绝对。即当该词在语料库中一次都没有我们就说这个不合理，当两个都出现1次就一定会出现，显然语料库是有可能不完整和充分的。因此这样的结论和概率是不合适的，需要我们解决该问题。</li>
 </ul>
-
-<h3 id="toc_16">本节数学符号</h3>
-
+<ul>
+<li><strong>运用更为通俗的学生例子加以解释</strong></li>
+</ul>
+<h5><a id="2-2-2-2-2-0%E6%A6%82%E7%8E%87%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2.2.2.2 0概率问题解决办法</h5>
+<p>最直接的办法：增加数据量，因为我们都知道根据大数定理，当量一定程度后其频率都比较接近概率，因此我们对这些出现一次的再增加就可以使其逼近真实概率。
+但是现实生活中大的数据量只是一个相对的概念，因此最后都会面临一个0概率或者100%的问题。</p>
+<ul>
+<li>古德图灵估计原理：
+对于没有看见的事件，我们不能认为他发生的概率是0，因此我们从概率总理中，分配一个很小的比例给这些没有看见的事件。这样以来看见的那些时间的概率总和就要小于1了，因此，需要将所有看见的事件概率<strong>调小</strong>一点。至于小多少。要根据“越是不可信的统计折扣越多的”的方法进行。</li>
+<li>古德-图灵估计语料估计过程
+假定在语料库中出现r次的词有\(N_r\)个，特别地，未出现的词数量\(N_0\)个，语料库的大小为N。则有：</li>
+</ul>
+\[\begin{equation}
+N=\sum_{r=1}^\infty rN_r 
+\end{equation} 
+\]
+<p>这个的意思就是，比如出现100次的有“我”“你”“他”三个词，则N=3*100=300
+对于出现r次的词在整个语料库中的相对频度则是：</p>
+\[\begin{equation}
+出现r次的词在整个语料库中的相对频度=rN_r/N
+\end{equation}
+\]
+<p> 现在我们看是如何运用的
+ 如果r次数比较小--》统计不可考---〉需要调整---》这个地方我们调整次数即可---〉用\(d_r\)代替r---&gt;其满足如下古德图灵公式：
+ </p>
+\[
+ d_r=(r+1)N_{r+1}/N_r=(r+1)\frac{N_{r+1}}{N_r}
+ 
+\]
+<p> 同时以下等式也是成立的：
+\(\sum_rd_r\cdot N_r=N\)</p>
+<ul>
+<li>zipf定律
+背景知识：根据观察一般语料库中，出现一次的词的数量比出现两次的多，出现两次的比出现三次的多。即出现次数越多的词，数量越少，出现次数越少的词数量越多。这个很好理解，常用词出现的次数很多，但是数量很少，其他不常用词出现次数少，但是量大，因为中文或者词语有几千个字，常用的不多，所以出现次数越多的单身数量却不多，不常用字生僻字还是占据了很大一部分，所以数量多，但是用的次数少。
+理解记忆小技巧：这就好像，r类似考试的100道题，能够做100分的活着高分的能人数很少，但是做个普通分数或者低分的人数量很多，有些类似或者可以这么记。
+即,只有极少数的词被经常使用,而绝大多数词很少被使用.</li>
+<li>古德图灵估计-2元模型</li>
+</ul>
+\[
+P(w_i|w_{i-1})= \left\{
+\begin{aligned}
+f(w_i|w_{i-1})  &amp;&amp;&amp; if \#(w_{i-1},w_i) &gt;=T  \\
+f_{gt}(w_i|w_{i-1}) &amp;&amp;&amp; if 0&lt;\#(w_{i-1},w_i)&lt; T \\
+Q(w_{i-1}) \cdot  f(w_i)  &amp;&amp;&amp; otherwise \\
+\end{aligned}
+\right.
+\]
+\[Q(w_{i-1})=\frac{1-\sum_\limits{w_i seen}P(w_i|w_{i-1})}{
+\sum_\limits{w_i seen}f(w_i)
+}
+\]
+<ul>
+<li>古德图灵估计-3元模型</li>
+</ul>
+\[
+P(w_i|w_{i-2},w_{i-1})= \left\{
+\begin{aligned}
+f(w_i|w_{i-2,w_{i-1}})  &amp;&amp;&amp; if \#(w_{i-2},w_{i-1},w_i) &gt;=T  \\
+f_{gt}(w_i|w_{i-2},w{i-1}) &amp;&amp;&amp; if 0&lt;\#(w_{i-2},w_{i-1},w_i)&lt; T \\
+Q(w_{i-2},w_{i-1}) \cdot  P(w_i|w_{i-1})  &amp;&amp;&amp; otherwise \\
+\end{aligned}
+\right.
+\]
+<h2><a id="%E8%AF%AD%E6%96%99%E5%BA%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>语料库</h2>
+<ul>
+<li>训练语料和模型应用领域需要相关，最好一致，比如不要用中华字典语料取训练网络流行语应用</li>
+<li>语料有适当噪声没有关系，因为他跟贴近实际。</li>
+<li>训练数据理论上越多越好</li>
+<li>由于实际过程中大部分语料不足，不要片面追求高阶模型，因为高阶模型需要训练的参数多，需要的数据更多。</li>
+<li>对语料数据，处理中，对于一些有规律、模式的噪声应该加以清除过滤。</li>
+</ul>
+<h3><a id="%E6%9C%AC%E8%8A%82%E6%A6%82%E5%BF%B5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>本节概念</h3>
+<p>zipf定律
+卡茨退避法
+不平滑模型，即条件概率大部分为0的模型。
+概率估计，统计语言模型的训练好坏的艺术就是在统计样本不足的情况下如何更好的概率估计。
+古德图灵估计(Good-Turing Estimate)</p>
+<h3><a id="%E7%96%91%E9%97%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>疑问</h3>
+<p>中文语料库是否具备zipf定律，如何运用中文语料库和英文语料库进行重现。</p>
+<p>###本节数学符号</p>
 <ul>
 <li>\(\#\) 语料库大小</li>
 <li>\(r\) 某个词在语料库中出现的次数为r</li>
 </ul>
-
-<h3 id="toc_17">参考链接</h3>
-
+<p>###参考链接</p>
 <ul>
-<li><p><a href="http://www.52nlp.cn/%E4%B8%AD%E8%8B%B1%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E8%AF%AD%E6%96%99%E4%B8%8A%E7%9A%84word2vec%E5%AE%9E%E9%AA%8C">http://www.52nlp.cn/%E4%B8%AD%E8%8B%B1%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E8%AF%AD%E6%96%99%E4%B8%8A%E7%9A%84word2vec%E5%AE%9E%E9%AA%8C</a><br/>
-吴恩达马尔可夫<br/>
-<a href="http://open.163.com/movie/2008/1/2/N/M6SGF6VB4_M6SGKSC2N.html">http://open.163.com/movie/2008/1/2/N/M6SGF6VB4_M6SGKSC2N.html</a><br/>
-吴恩达序列模型-nlp<br/>
-<a href="https://mooc.study.163.com/learn/2001280005?tid=2001391038#/learn/content">https://mooc.study.163.com/learn/2001280005?tid=2001391038#/learn/content</a></p></li>
-<li><p>作者：luomgf</p></li>
-<li><p>163mail:luomgf</p></li>
-<li><p>说明：转载请注明出处，系本人原创阅读分享，欢迎有兴趣的机器学习、人工智能和自然语言处理技术学习的朋友一起交流</p></li>
-<li><p>地址：<a href="https://www.cnblogs.com/luomgf/p/10971773.html">https://www.cnblogs.com/luomgf/p/10971773.html</a></p></li>
+<li><a href="http://www.52nlp.cn/%E4%B8%AD%E8%8B%B1%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E8%AF%AD%E6%96%99%E4%B8%8A%E7%9A%84word2vec%E5%AE%9E%E9%AA%8C">http://www.52nlp.cn/%E4%B8%AD%E8%8B%B1%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E8%AF%AD%E6%96%99%E4%B8%8A%E7%9A%84word2vec%E5%AE%9E%E9%AA%8C</a>
+吴恩达马尔可夫
+<a href="http://open.163.com/movie/2008/1/2/N/M6SGF6VB4_M6SGKSC2N.html">http://open.163.com/movie/2008/1/2/N/M6SGF6VB4_M6SGKSC2N.html</a>
+吴恩达序列模型-nlp
+<a href="https://mooc.study.163.com/learn/2001280005?tid=2001391038#/learn/content">https://mooc.study.163.com/learn/2001280005?tid=2001391038#/learn/content</a></li>
+</ul>
+<ul>
+<li>作者：luomgf</li>
+<li>163mail:luomgf</li>
+<li>说明：转载请注明出处，系本人原创阅读分享，欢迎有兴趣的机器学习、人工智能和自然语言处理技术学习的朋友一起交流</li>
+<li>地址：<a href="https://www.cnblogs.com/luomgf/p/10971773.html">https://www.cnblogs.com/luomgf/p/10971773.html</a></li>
 </ul>
 
                         
@@ -529,6 +970,8 @@ Q(w_{i-2},w_{i-1}) \cdot  P(w_i|w_{i-1})  &amp;&amp;&amp; otherwise \\<br/>
           				  
           					    <span class="posted-in"><a href='%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E.html'>数学之美</a></span>
           				   
+                    
+
                   </div>
                   <div class="more-right right">
                   <span class="comments">
@@ -594,6 +1037,8 @@ Q(w_{i-2},w_{i-1}) \cdot  P(w_i|w_{i-1})  &amp;&amp;&amp; otherwise \\<br/>
 
       	<p class="cat-list">
         
+            <a href="%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86.html"><strong>项目管理</strong></a>
+        
             <a href="%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E.html"><strong>数学之美</strong></a>
         
             <a href="tensorflow.html"><strong>tensorflow</strong></a>
@@ -613,6 +1058,24 @@ Q(w_{i-2},w_{i-1}) \cdot  P(w_i|w_{i-1})  &amp;&amp;&amp; otherwise \\<br/>
 	      
 		      
 			      <li class="post">
+			        <a href="16443998998895.html">字符集介绍</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15634636686808.html">演示</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15634636540680.html">参考书籍</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15598066043381.html">Tensorflow高维向量可视化</a>
 			      </li>
 		     
@@ -624,16 +1087,8 @@ Q(w_{i-2},w_{i-1}) \cdot  P(w_i|w_{i-1})  &amp;&amp;&amp; otherwise \\<br/>
 		     
 		  
 		      
-			      <li class="post">
-			        <a href="15595496452148.html">第四章 谈谈分词</a>
-			      </li>
-		     
 		  
 		      
-			      <li class="post">
-			        <a href="15592722366067.html">第三章 统计语言模型</a>
-			      </li>
-		     
 		   
 		  		</ul>
                 </div>
@@ -656,6 +1111,213 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
       </div>
     </div>
 
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
   
     
 
@@ -676,8 +1338,6 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
      
     </script>
 
-    
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
 
 
   </body>
